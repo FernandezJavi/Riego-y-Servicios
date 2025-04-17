@@ -13,7 +13,7 @@ const showMenu = (toggleId, navId) => {
 
 showMenu('nav-toggle', 'nav-menu');
 
-//Toggling Menu by clicking in mobile menu links
+
 
 const navLink = document.querySelectorAll('.nav-link');
 
@@ -27,7 +27,7 @@ function linkAction() {
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
-// Changing Active Menu section while scrolling
+
 
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', scrollActive);
@@ -48,7 +48,7 @@ function scrollActive() {
     })
 }
 
-// Scroll Reveal Settings
+
 
 const sr = ScrollReveal({
     origin: 'top',
@@ -79,7 +79,7 @@ sr.reveal('.contact-input', {delay: 400});
 sr.reveal('.contact-button', {delay: 600});
 
 
-// Lightbox mejorado
+// Lightbox 
 document.querySelectorAll('.portfolio-img').forEach(img => {
     img.addEventListener('click', (e) => {
         e.preventDefault();
@@ -132,8 +132,8 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     submitButton.textContent = 'Enviando...';
     
     emailjs.sendForm(
-        'service_6m1zomt',
-        'template_46gpqgq',
+        'service_bod4q7b',
+        'template_hybgihb',
         this
     )
     .then(() => {
@@ -154,5 +154,24 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     .finally(() => {
         submitButton.disabled = false;
         submitButton.textContent = originalText;
+    });
+});
+// Lightbox para servicios
+document.querySelectorAll('.skills-name').forEach(service => {
+    service.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxText = document.getElementById('lightbox-text');
+        
+        // Cargar contenido
+        lightboxImg.src = service.dataset.image;
+        lightboxImg.alt = service.textContent;
+        lightboxText.textContent = service.dataset.description || "Descripción no disponible";
+        
+        // Mostrar lightbox
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     });
 });
