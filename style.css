@@ -144,7 +144,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .home {
     position: relative;
-    background-image: url(imagenes/ini.webp);
+   
     overflow: hidden;
     
     /* Nuevas propiedades añadidas */
@@ -520,4 +520,22 @@ img { max-width: 100%; height: auto; display: block; }
 .swal2-title {
     color: var(--dark-color);
     font-size: 1.5rem;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.oculto {
+        opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
 }

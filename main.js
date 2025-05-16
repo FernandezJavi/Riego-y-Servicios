@@ -175,3 +175,12 @@ document.querySelectorAll('.skills-name').forEach(service => {
         document.body.style.overflow = 'hidden';
     });
 });
+// Ocultar el título principal después de 8 segundos
+window.addEventListener('DOMContentLoaded', () => {
+    const homeTitle = document.querySelector('.home-title');
+    if (homeTitle) {
+        setTimeout(() => {
+            homeTitle.classList.add('oculto');
+        }, 8000); // 8000 milisegundos = 8 segundos
+    }
+});
